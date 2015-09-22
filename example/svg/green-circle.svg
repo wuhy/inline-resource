@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<svg id="circle" height="70" width="70" xmlns="http://www.w3.org/2000/svg">
+  <circle id="greencircle" cx="32" cy="32" r="30" fill="green" />
+</svg>

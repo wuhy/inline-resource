@@ -1,0 +1,18 @@
+/**
+ * @file css
+ */
+
+
+body {
+    width: 1200px;
+    margin: 0 auto;
+    background: #ccc;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
+    border: 0px;
+}
+
+

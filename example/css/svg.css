@@ -1,0 +1,5 @@
+.svg {
+    height: 100px;
+    width: 100%;
+    background: url(../svg/green-circle.svg) no-repeat;
+}

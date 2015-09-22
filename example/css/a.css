@@ -1,0 +1,7 @@
+@import 'import/import.css';
+
+.icon {
+    height: 50px;
+    background: url(./icon.png) no-repeat;
+}
+

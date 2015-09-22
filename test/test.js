@@ -11,6 +11,24 @@ inliner.addInlineTaskFor('html', function (file) {
     });
 });
 
+inliner.registerInlineProcessor('etpl', {
+    taskList: [
+        function (file) {
+            var me = this;
+            return file.data.replace(
+                /<!--\s*include:\s*([^\s]+)\s*-->/g,
+                function (match, path) {
+                    var result = me.getInlineResult(path);
+                    if (result) {
+                        return result.data;
+                    }
+                    return match;
+                }
+            )
+        }
+    ]
+});
+
 var result = inliner.inline({
     inlineAll: true,
     files: [
@@ -26,10 +44,10 @@ var result = inliner.inline({
         //'example/d.html',
         //'example/js/customInline.js',
         //'example/icomoon/demo.html',
-        'example/customTask.html'
+        //'example/customTask.html',
+        'example/custom.etpl'
     ],
     inlinePathGetter: function (path, file) {
-        console.log(path + '; file:' + file.path)
         var path = path.replace(/{%site_host%}\//, '');
         var dir;
         if (/\W+views\//.test(file.path)) {

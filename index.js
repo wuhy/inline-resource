@@ -59,18 +59,14 @@ exports.addInlineTaskFor = function (type, task) {
  *        }
  */
 exports.registerInlineProcessor = function (type, processor) {
-    if (!$.isObject(processor)) {
+    if (!_.isObject(processor)) {
         return;
     }
 
     function CustomProcessor() {
         Inliner.apply(this, arguments);
-
-        var taskList = processor.taskList;
-        taskList = taskList.map(function (task) {
-            return {enable: true, task: task};
-        });
-        this.initInlineTasks(taskList);
+        this.file.data = this.file.data.toString();
+        this.initInlineTasks(processor.taskList);
     }
 
     require('util').inherits(CustomProcessor, Inliner);

@@ -22,16 +22,17 @@ exports.inline = Inliner.inline;
  * 增加自定义的内联任务方法
  *
  * @param {string} type 内联的处理器类型，`html` | `js` | `css` | `img` | `font` | `svg`
- * @param {function(Object, Object, Function):string} task，增加的内联任务
+ * @param {Object} task，增加的内联任务，可以是如下两种结构：
+ *        1) 直接传入执行的任务处理方法
+ *        function (file) { return file.data; }
+ *        2) 传入一个对象，结构如下
+ *        {
+ *          enable: function () { return true; },
+ *          task: function (file) { return file.data }
+ *        }
  */
 exports.addInlineTaskFor = function (type, task) {
-    var processor = Inliner[type];
-    if (processor) {
-        processor.addInlineTask(task);
-    }
-    else {
-        console.error('the specified type %s is not found', type);
-    }
+    Inliner.addInlineTask(type, task);
 };
 
 /**

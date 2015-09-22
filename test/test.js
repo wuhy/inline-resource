@@ -1,5 +1,17 @@
 var inliner = require('./../index');
-inliner.inline({
+inliner.addInlineTaskFor('html', function (file) {
+    var me = this;
+    var inlineTplRegexp = /<!--\s*inline:\s*([^\s]+)\s*-->/g;
+    return file.data.replace(inlineTplRegexp, function (match, path) {
+        var result = me.getInlineResult(path);
+        if (result) {
+            return result.data;
+        }
+        return match;
+    });
+});
+
+var result = inliner.inline({
     inlineAll: true,
     files: [
         ///^example\/a\.html/,
@@ -13,7 +25,8 @@ inliner.inline({
         //'example/customTpl.mustache',
         //'example/d.html',
         //'example/js/customInline.js',
-        'example/icomoon/demo.html'
+        //'example/icomoon/demo.html',
+        'example/customTask.html'
     ],
     inlinePathGetter: function (path, file) {
         console.log(path + '; file:' + file.path)

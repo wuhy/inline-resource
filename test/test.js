@@ -26,7 +26,10 @@ inliner.registerInlineProcessor('etpl', {
                 }
             )
         }
-    ]
+    ],
+    compress: function (file) {
+        return file.data.trim();
+    }
 });
 
 var result = inliner.inline({
@@ -77,6 +80,9 @@ var result = inliner.inline({
         compress: false
     },
     html: {
+        compress: true
+    },
+    etpl: {
         compress: true
     },
     output: 'output'

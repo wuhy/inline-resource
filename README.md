@@ -39,7 +39,6 @@ npm install inline-resource --save
 
 ```javascript
 var inliner = require('inline-resource');
-var inliner = require('./../index');
 var result = inliner.inline({
     inlineAll: true,
     files: ['index.html'],

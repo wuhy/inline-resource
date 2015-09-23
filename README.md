@@ -29,6 +29,12 @@ inline-reosurce
 
 ## How to use
 
+### Install
+
+```shell
+npm install inline-resource --save
+```
+
 ### A simple example
 
 ```javascript
@@ -178,6 +184,10 @@ inliner.registerInlineProcessor('etpl', {
 });
 
 ```
+
+## TODO
+
+- [ ] test case
 
 ## Limitations
 

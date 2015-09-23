@@ -10,7 +10,13 @@ inliner.addInlineTaskFor('html', function (file) {
         return match;
     });
 });
-
+// inliner.addInlineTaskFor('js', [
+//     function (file) {
+//         return file.data.replace(/\{|\}/g, function (match) {
+//             return {'{': '{ldelim}', '}': '{rdelim}'}[match];
+//         });
+//     }
+// ]);
 inliner.registerInlineProcessor('etpl', {
     taskList: [
         function (file) {
@@ -35,19 +41,19 @@ inliner.registerInlineProcessor('etpl', {
 var result = inliner.inline({
     inlineAll: true,
     files: [
-        ///^example\/a\.html/,
-        //'example/c.html',
-        //'example/img.html',
-        //'example/svg.html',
-        //'example/importer.html',
-        //'example/write.html',
-        //'example/customPath.tpl',
-        //'example/views/server.tpl',
-        //'example/customTpl.mustache',
-        //'example/d.html',
-        //'example/js/customInline.js',
-        //'example/icomoon/demo.html',
-        //'example/customTask.html',
+        /^example\/a\.html/,
+        'example/c.html',
+        'example/img.html',
+        'example/svg.html',
+        'example/importer.html',
+        'example/write.html',
+        'example/customPath.tpl',
+        'example/views/server.tpl',
+        'example/customTpl.mustache',
+        'example/d.html',
+        'example/js/customInline.js',
+        'example/icomoon/demo.html',
+        'example/customTask.html',
         'example/custom.etpl'
     ],
     inlinePathGetter: function (path, file) {

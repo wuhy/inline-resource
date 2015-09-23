@@ -49,6 +49,53 @@ var result = inliner.inline({
 });
 ```
 
+### Using with web server
+
+* [edp webserver](https://github.com/ecomfe/edp-webserver)
+
+    ```javascript
+    {
+        location: /\.js($|\?)/,
+        handler: [
+            file(),
+            function (context) {
+                var req = context.request;
+                var path = req.pathname.replace(/^\/+/, '');
+                var result = inliner.inline({
+                    files: [{path: path, data: context.content}],
+                    inlinePathGetter: function (path) {
+                        return {path: path.replace(/\{\$course_host\}\//, ''), dir: '.'};
+                    }
+                });
+                context.content = result[0].data;
+            }
+        ]
+    },
+    {
+        location: /\.php/,
+        handler: [
+            php('php-cgi'),
+            function (context) {
+                var req = context.request;
+                var path = req.pathname.replace(/^\/+/, '');
+                var result = inliner.inline({
+                    files: [{path: path, data: context.content}],
+                    processor: {php: 'html'},
+                    img: false,
+                    css: false,
+                    html: false,
+                    inlinePathGetter: function (path) {
+                        var url = require('url').parse(path, true);
+                        var newPath = url.pathname.replace(/^\/+/, '') + url.search;
+                        return {path: newPath, dir: '.'};
+                    }
+                });
+                context.content = result[0].data;
+            }
+        ]
+    },
+    ```
+    
 ## Options
 
 * root - `string` `optional` the root directory to process, by defautl using current working directory
@@ -141,7 +188,7 @@ var result = inliner.inline({
     
 ## API
 
-* addInlineTaskFor(type, task) - add custom inline task for the specified processor type
+* addInlineTaskFor(type, tasks) - add custom inline task for the specified processor type
 
 ```javascript
 var inliner = require('inline-resource');

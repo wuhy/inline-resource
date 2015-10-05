@@ -15,6 +15,7 @@
   },
   "keywords": [
     "inline",
+    "html", "css", "image", "svg", "js", "font",
     "node"
   ],
   "author": "sparklewhy@gmail.com",

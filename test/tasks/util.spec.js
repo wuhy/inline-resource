@@ -58,29 +58,6 @@ describe('utility', function () {
         expect(util.rebasePath('b.js', 'c/index.html', 'index.html')).to.be('c/b.js')
     });
 
-    it('should traverse the given directory', function () {
-        var fileArr = [];
-        util.traverseFileSync('test/fixtures/a', function (path) {
-            fileArr.push(pathUtil.relative(process.cwd(), path));
-        });
-
-        var target = [
-            'test/fixtures/a/a.js',
-            'test/fixtures/a/c/d.js',
-            'test/fixtures/a/c/e.js'
-        ];
-        expect(fileArr.length).to.be(target.length);
-        fileArr.forEach(function (item) {
-            expect(target.indexOf(item) !== -1).to.be(true);
-        });
-
-        fileArr = [];
-        util.traverseFileSync('test/fixtures/a/b', function (path) {
-            fileArr.push(pathUtil.relative(process.cwd(), path));
-        });
-        expect(fileArr).to.be.eql([]);
-    });
-
     it('should create correct directory based the given path', function () {
         var aPath = pathUtil.join(__dirname, 'a');
         var bPath = pathUtil.join(aPath, 'b.js');
@@ -100,6 +77,31 @@ describe('utility', function () {
                 });
             }
         });
+    });
+
+    it('should traverse the given directory', function () {
+        var fileArr = [];
+        util.traverseFileSync('test/fixtures/a', function (path) {
+            fileArr.push(pathUtil.relative(process.cwd(), path));
+        });
+
+        var target = [
+            'test/fixtures/a/a.js',
+            'test/fixtures/a/c/d.js',
+            'test/fixtures/a/c/e.js'
+        ];
+        expect(fileArr.length).to.be(target.length);
+        fileArr.forEach(function (item) {
+            expect(target.indexOf(item) !== -1).to.be(true);
+        });
+
+        fileArr = [];
+        var emptyDir = 'test/fixtures/a/b';
+        util.mkdirsSyn(emptyDir);
+        util.traverseFileSync(emptyDir, function (path) {
+            fileArr.push(pathUtil.relative(process.cwd(), path));
+        });
+        expect(fileArr).to.be.empty();
     });
 
     it('should return the file type of the given file path', function () {

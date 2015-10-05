@@ -124,7 +124,10 @@ describe('inline option', function () {
             ],
             fileMap: fileMap
         });
-        expect(result[0].data == helper.readFileSync('filemap/out/index.html').toString()).to.be(true);
+        console.log(result.data);
+        var expectedResult = helper.readFileSync('filemap/out/index.html').toString();
+        console.log(expectedResult);
+        expect(result[0].data == expectedResult).to.be(true);
     });
 
 });

@@ -231,10 +231,6 @@ inliner.registerInlineProcessor('etpl', {
 
 ```
 
-## TODO
-
-- [ ] test case
-
 ## Limitations
 
 The implementation to find inline assets uses regular expression heavily, so you donot expect this tool can process all cases including unconventional writing or other complex cases.

@@ -3,7 +3,7 @@ var pathUtil = require('path');
 
 exports.readFileSync = function (path) {
     var filePath = pathUtil.join(process.cwd(), 'test/fixtures', path);
-    return fs.readFileSync(filePath).toString();
+    return fs.readFileSync(filePath);
 };
 
 exports.unlinkDirectory = function (dir) {

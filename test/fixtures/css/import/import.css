@@ -1,0 +1,9 @@
+/**
+ * @file import css file
+ * @author test
+ */
+
+.icon2 {
+    height: 50px;
+    background: url(../../img/bookmark.png) no-repeat;
+}

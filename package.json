@@ -4,11 +4,14 @@
   "description": "Inline image/css/js/html etc. what you wanna inline resource",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/tasks/*.spec.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/wuhy/inline-resource.git"
+  },
+  "bugs": {
+    "url": "http://github.com/wuhy/inline-resource/issues"
   },
   "keywords": [
     "inline",
@@ -24,5 +27,9 @@
     "minimatch": "^2.0.10",
     "svgo": "^0.5.6",
     "uglify-js": "^2.4.24"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.3"
   }
 }

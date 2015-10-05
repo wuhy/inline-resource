@@ -1,0 +1,5 @@
+<!-- target: myTpl -->
+<header>Header Content</header>
+
+<div class="main">Hello ${name}!</div>
+

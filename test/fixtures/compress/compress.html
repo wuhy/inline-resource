@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>test html</title>
+    <style>
+        /* don't compress me */
+        body {
+            background: #ccc;
+        }
+        image {
+            border: none;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+    <script src="a.js"></script>
+</head>
+<body>
+<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/2-0-6/esl.js"></script>
+<script>
+    // don't compress me
+    var a = "\'abc\n\'";
+
+    require.config({
+
+        baseUrl: 'src',
+
+        packages: [
+
+        ],
+        paths: {
+
+        }
+    });
+</script>
+<script src="a.min.js"></script>
+</body>
+</html>

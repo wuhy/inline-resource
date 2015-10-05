@@ -1,0 +1,51 @@
+/**
+ * @file css file
+ * @author test
+ */
+
+@media print {
+.import2 {
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+}
+}
+@media projection, tv {
+.import3 {
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+}
+}
+
+.import4 {
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.import5 {
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+@media screen, projection {
+.import6 {
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+}
+}
+@media screen and (orientation:landscape) {
+.import7 {
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+}
+}
+
+.icon {
+    height: 50px;
+}
+

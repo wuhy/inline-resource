@@ -1,0 +1,15 @@
+/**
+ * @file css file
+ * @author test
+ */
+
+@import url("import/import2.css") print;
+@import url('import/import3.css') projection, tv;
+@import 'import/import4.css';@import url("import/import5.css");
+@import "import/import6.css" screen, projection;
+@import url('import/import7.css') screen and (orientation:landscape);
+
+.icon {
+    height: 50px;
+}
+

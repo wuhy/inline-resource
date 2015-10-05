@@ -1,0 +1,4 @@
+<!-- target: myTpl -->
+<!-- include: header.etpl -->
+<div class="main">Hello ${name}!</div>
+

@@ -124,11 +124,11 @@ describe('inline option', function () {
             ],
             fileMap: fileMap
         });
-        console.log(result[0].data);
+        //console.log(result[0].data);
         var expectedResult = helper.readFileSync('filemap/out/index.html').toString();
-        console.log(expectedResult);
-        //expect(helper.readFileSync('filemap/out/a.html').toString()).to.eql(expectedResult);
-        expect(result[0].data).to.eql(expectedResult);
+        //console.log(expectedResult);
+        expect(helper.readFileSync('filemap/out/a.html').toString()).to.eql(expectedResult);
+        //expect(result[0].data).to.eql(expectedResult);
     });
 
 });

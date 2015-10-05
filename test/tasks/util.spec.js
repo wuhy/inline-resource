@@ -63,11 +63,16 @@ describe('utility', function () {
         util.traverseFileSync('test/fixtures/a', function (path) {
             fileArr.push(pathUtil.relative(process.cwd(), path));
         });
-        expect(fileArr).to.be.eql([
+
+        var target = [
             'test/fixtures/a/a.js',
             'test/fixtures/a/c/d.js',
             'test/fixtures/a/c/e.js'
-        ]);
+        ];
+        expect(fileArr.length).to.be(target.length);
+        fileArr.forEach(function (item) {
+            expect(target.indexOf(item) !== -1).to.be(true);
+        });
 
         fileArr = [];
         util.traverseFileSync('test/fixtures/a/b', function (path) {

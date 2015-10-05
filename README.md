@@ -167,7 +167,7 @@ var result = inliner.inline({
 
     ```javascript
     js: {
-        // whether using the custom inline method, by default false
+        // whether using the custom inline method, by default true
         // e.g., var tpl = '__inline("./a.tpl")'; // output: var tpl = '<inline tpl content>'
         // '__inline("./a.js")' // output: <inline js file content>
         custom: false, 

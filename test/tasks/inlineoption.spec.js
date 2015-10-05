@@ -124,7 +124,7 @@ describe('inline option', function () {
             ],
             fileMap: fileMap
         });
-        console.log(result.data);
+        console.log(result[0].data);
         var expectedResult = helper.readFileSync('filemap/out/index.html').toString();
         console.log(expectedResult);
         expect(result[0].data == expectedResult).to.be(true);

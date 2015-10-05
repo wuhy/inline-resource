@@ -37,6 +37,16 @@ exports.addInlineTaskFor = function (type, task) {
 };
 
 /**
+ * 移除指定类型的内联任务
+ *
+ * @param {string} type 要移除的任务的目标处理器类型
+ * @param {Function} task 要移除的内联任务
+ */
+exports.removeInlineTask = function (type, task) {
+    Inliner.removeInlineTask(type, task);
+};
+
+/**
  * 注册内联处理器
  *
  * @param {string} type 处理器类型名

@@ -1,4 +1,4 @@
-inline-reosurce
+inline-resource
 ========
 
 [![Build Status](https://travis-ci.org/wuhy/inline-resource.svg?branch=master)](https://travis-ci.org/wuhy/inline-resource) [![Dependencies Status](https://david-dm.org/wuhy/inline-resource.png)](https://david-dm.org/wuhy/inline-resource)

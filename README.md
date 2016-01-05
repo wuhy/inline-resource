@@ -138,9 +138,23 @@ var result = inliner.inline({
  
 * ignoreCompressFiles - `Array<string|RegExp>` `optional` the files to been ignored when enable compress option
 
-* img - `boolean` `optional` whether enable image inline process using base64 encode, by default `true`
+* img - `boolean|Object` `optional` whether enable image inline process using base64 encode, by default `true`
 
-* font - `boolean` `optional` whether enable font inline process using base64 encode, by default `true`
+    ```javascript
+        img: {
+            // the image file size less than or equal 1024 byte will be inlined
+            limit: 1024
+        }
+    ```
+
+* font - `boolean|Object` `optional` whether enable font inline process using base64 encode, by default `true`
+
+    ```javascript
+        font: {
+            // the font file file size less than or equal 1024 byte will be inlined
+            limit: 1024
+        }
+    ```
 
 * svg - `boolean|Object` `optional` whether enable svg inline process using base64 encode or svg source, by default `true`
 
@@ -148,6 +162,9 @@ var result = inliner.inline({
     svg: {
         // by default, using base64 encode
         useSource: false, 
+        
+        // the svg file size less than or equal 1024 byte will be inlined
+        limit: 1024
         
         // whether compress svg source file when inline svg source, by default false
         // if enabled, please make sure `svgo@^0.6.1` is installed in global or working dir

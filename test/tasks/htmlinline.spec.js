@@ -124,7 +124,21 @@ describe('html inliner', function () {
             ]
         });
 
-        expect(result[0].data == helper.readFileSync('html/out/img.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/img.html').toString());
+    });
+
+    it('should inline limit image file', function () {
+        var result = inliner.inline({
+            inlineAll: true,
+            img: {
+                limit: 100
+            },
+            files: [
+                'test/fixtures/html/img.html'
+            ]
+        });
+
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/img-limit.html').toString());
     });
 
     it('should inline svg file with base64 encoding', function () {
@@ -149,7 +163,22 @@ describe('html inliner', function () {
             }
         });
 
-        expect(result[0].data == helper.readFileSync('html/out/svg.source.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/svg.source.html').toString());
+    });
+
+    it('should inline limit svg file using source', function () {
+        var result = inliner.inline({
+            inlineAll: true,
+            files: [
+                'test/fixtures/html/svg.html'
+            ],
+            svg: {
+                useSource: true,
+                limit: 100
+            }
+        });
+
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/svg-limit.html').toString());
     });
 
     it('should inline and compress svg file using source', function () {
@@ -164,7 +193,7 @@ describe('html inliner', function () {
             }
         });
 
-        expect(result[0].data == helper.readFileSync('html/out/svg.source.compress.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/svg.source.compress.html').toString());
     });
 
     it('should inline imported html file', function () {

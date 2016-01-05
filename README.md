@@ -1,4 +1,4 @@
-inline-reosurce
+inline-resource
 ========
 
 [![Build Status](https://travis-ci.org/wuhy/inline-resource.svg?branch=master)](https://travis-ci.org/wuhy/inline-resource) [![Dependency Status](https://david-dm.org/wuhy/inline-resource.svg)](https://david-dm.org/wuhy/inline-resource) [![devDependency Status](https://david-dm.org/wuhy/inline-resource/dev-status.svg)](https://david-dm.org/wuhy/inline-resource#info=devDependencies) [![NPM Version](https://img.shields.io/npm/v/inline-resource.svg?style=flat)](https://npmjs.org/package/inline-resource)

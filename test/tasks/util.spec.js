@@ -135,4 +135,9 @@ describe('utility', function () {
 
         expect(util.getFileType('a/b.svg')).to.be('svg');
     });
+
+    it('should resolve module path', function () {
+        expect(util.require('uglify-js') !== null).to.be(true);
+        expect(util.require('abc') == null).to.be(true);
+    });
 });

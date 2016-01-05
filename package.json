@@ -1,6 +1,6 @@
 {
   "name": "inline-resource",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Inline image/css/js/html etc. what you wanna inline resource",
   "main": "index.js",
   "scripts": {

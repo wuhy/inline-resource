@@ -141,19 +141,19 @@ var result = inliner.inline({
 * img - `boolean|Object` `optional` whether enable image inline process using base64 encode, by default `true`
 
     ```javascript
-        img: {
-            // the image file size less than or equal 1024 byte will be inlined
-            limit: 1024
-        }
+    img: {
+        // the image file size less than or equal 1024 byte will be inlined
+        limit: 1024
+    }
     ```
 
 * font - `boolean|Object` `optional` whether enable font inline process using base64 encode, by default `true`
 
     ```javascript
-        font: {
-            // the font file file size less than or equal 1024 byte will be inlined
-            limit: 1024
-        }
+    font: {
+        // the font file file size less than or equal 1024 byte will be inlined
+        limit: 1024
+    }
     ```
 
 * svg - `boolean|Object` `optional` whether enable svg inline process using base64 encode or svg source, by default `true`
@@ -253,6 +253,4 @@ inliner.registerInlineProcessor('etpl', {
 
 ```
 
-## Limitations
 
-The implementation to find inline assets uses regular expression heavily, so you donot expect this tool can process all cases including unconventional writing or other complex cases.

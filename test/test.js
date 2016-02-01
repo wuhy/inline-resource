@@ -56,7 +56,7 @@ var result = inliner.inline({
         'example/customTask.html',
         'example/custom.etpl'
     ],
-    inlinePathGetter: function (path, file) {
+    inlinePathResolver: function (path, file) {
         var path = path.replace(/{%site_host%}\//, '');
         var dir;
         if (/\W+views\//.test(file.path)) {

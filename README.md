@@ -64,7 +64,7 @@ var result = inliner.inline({
                 var path = req.pathname.replace(/^\/+/, '');
                 var result = inliner.inline({
                     files: [{path: path, data: context.content}],
-                    inlinePathGetter: function (path) {
+                    inlinePathResolver: function (path) {
                         return {path: path.replace(/\{\$course_host\}\//, ''), dir: '.'};
                     }
                 });
@@ -85,7 +85,7 @@ var result = inliner.inline({
                     img: false,
                     css: false,
                     html: false,
-                    inlinePathGetter: function (path) {
+                    inlinePathResolver: function (path) {
                         var url = require('url').parse(path, true);
                         var newPath = url.pathname.replace(/^\/+/, '') + url.search;
                         return {path: newPath, dir: '.'};
@@ -109,10 +109,10 @@ var result = inliner.inline({
 
 * processor - `Object` `optional` custom the processor type using, e.g., {mustache: 'html'}
 
-* inlinePathGetter - `Function` `optional` custom the inline file path
+* inlinePathResolver - `Function` `optional` resolve the inline file path
 
     ```javascript
-    inlinePathGetter: function (path, file) {
+    inlinePathResolver: function (path, file) {
         var path = path.replace(/{%site_host%}\//, '');
         
         return path;

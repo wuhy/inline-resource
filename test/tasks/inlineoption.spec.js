@@ -38,7 +38,7 @@ describe('inline option', function () {
         expect(result[0].data == helper.readFileSync('specify/out/default.specify.html').toString()).to.be(true);
     });
 
-    it('should compute inline file path based on the inlinePathGetter', function () {
+    it('should compute inline file path based on the inlinePathResolver', function () {
         var result = inliner.inline({
             inlineAll: true,
             files: [
@@ -46,7 +46,7 @@ describe('inline option', function () {
                 'test/fixtures/path/views/server.tpl',
                 'test/fixtures/path/js/specify.context.js'
             ],
-            inlinePathGetter: function (path, file) {
+            inlinePathResolver: function (path, file) {
                 var newPath = path.replace(/{%site_host%}\//, '');
                 var dir;
                 if (file.path.indexOf('test/fixtures/path/views/') === 0) {

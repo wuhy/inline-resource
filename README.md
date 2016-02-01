@@ -125,7 +125,7 @@ var result = inliner.inline({
     }
     ```
 
-* inlineAll - `boolean` `optional` whether inline all local resources referred by the processed file, by default `false`, specify which resource need to be inline manually
+* inlineAll - `boolean` `optional` whether inline all local resources referred by the processed file, by default `false`, specify which resource need to be inline manually. **Notice** if setting `true`, you should manuall specify which resource type you want to inline all using the following resource type option, e.g., setting `css: true`, it will inline all css files.
 
 * inlineParamName - `string` `optional` by default `_inline`, specify the inline resource like:
 
@@ -138,7 +138,7 @@ var result = inliner.inline({
  
 * ignoreCompressFiles - `Array<string|RegExp>` `optional` the files to been ignored when enable compress option
 
-* img - `boolean|Object` `optional` whether enable image inline process using base64 encode, by default `true`
+* img - `boolean|Object` `optional` whether enable image inline process using base64 encode, by default `true` if `inlineAll` is not `true`
 
     ```javascript
     img: {
@@ -147,7 +147,7 @@ var result = inliner.inline({
     }
     ```
 
-* font - `boolean|Object` `optional` whether enable font inline process using base64 encode, by default `true`
+* font - `boolean|Object` `optional` whether enable font inline process using base64 encode, by default `true` if `inlineAll` is not `true`
 
     ```javascript
     font: {
@@ -156,7 +156,7 @@ var result = inliner.inline({
     }
     ```
 
-* svg - `boolean|Object` `optional` whether enable svg inline process using base64 encode or svg source, by default `true`
+* svg - `boolean|Object` `optional` whether enable svg inline process using base64 encode or svg source, by default `true` if `inlineAll` is not `true`
 
     ```javascript
     svg: {
@@ -172,7 +172,7 @@ var result = inliner.inline({
     }
     ```
 
-* css - `boolean|Object` `optional`  whether enable css inline process, by default `true`
+* css - `boolean|Object` `optional`  whether enable css inline process, by default `true` if `inlineAll` is not `true`
 
     ```javascript
     css: {
@@ -184,7 +184,7 @@ var result = inliner.inline({
         compress: false 
     }
     ```
-* js - `boolean|Object` `optional`  whether enable js inline process, by default `true`
+* js - `boolean|Object` `optional`  whether enable js inline process, by default `true` if `inlineAll` is not `true`
 
     ```javascript
     js: {
@@ -198,7 +198,7 @@ var result = inliner.inline({
         compress: false 
     }
     ```
-* html - `boolean|Object` `optional`  whether enable html inline process, by default `true`
+* html - `boolean|Object` `optional`  whether enable html inline process, by default `true`  if `inlineAll` is not `true`
 
     ```javascript
     html: {

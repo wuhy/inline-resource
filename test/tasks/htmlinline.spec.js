@@ -8,7 +8,8 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/script.html'
-            ]
+            ],
+            js: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/script.html').toString()).to.be(true);
@@ -33,7 +34,8 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/script.content.html'
-            ]
+            ],
+            js: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/script.content.html').toString()).to.be(true);
@@ -58,7 +60,8 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/style.html'
-            ]
+            ],
+            css: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/style.html').toString()).to.be(true);
@@ -83,7 +86,8 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/style.media.html'
-            ]
+            ],
+            css: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/style.media.html').toString()).to.be(true);
@@ -95,7 +99,8 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/style.content.html'
-            ]
+            ],
+            css: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/style.content.html').toString()).to.be(true);
@@ -121,7 +126,8 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/img.html'
-            ]
+            ],
+            img: true
         });
 
         expect(result[0].data).to.eql(helper.readFileSync('html/out/img.html').toString());
@@ -146,7 +152,9 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/svg.html'
-            ]
+            ],
+            svg: true,
+            img: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/svg.html').toString()).to.be(true);
@@ -160,7 +168,8 @@ describe('html inliner', function () {
             ],
             svg: {
                 useSource: true
-            }
+            },
+            img: true
         });
 
         expect(result[0].data).to.eql(helper.readFileSync('html/out/svg.source.html').toString());
@@ -175,7 +184,8 @@ describe('html inliner', function () {
             svg: {
                 useSource: true,
                 limit: 100
-            }
+            },
+            img: true
         });
 
         expect(result[0].data).to.eql(helper.readFileSync('html/out/svg-limit.html').toString());
@@ -190,7 +200,8 @@ describe('html inliner', function () {
             svg: {
                 useSource: true,
                 compress: true
-            }
+            },
+            img: true
         });
 
         expect(result[0].data).to.eql(helper.readFileSync('html/out/svg.source.compress.html').toString());
@@ -201,7 +212,9 @@ describe('html inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/html/importhtml.html'
-            ]
+            ],
+            html: true,
+            css: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/importhtml.html').toString()).to.be(true);
@@ -216,7 +229,8 @@ describe('html inliner', function () {
             ],
             html: {
                 compress: true
-            }
+            },
+            css: true
         });
 
         expect(result[0].data == helper.readFileSync('html/out/importhtml.compress.html').toString()).to.be(true);

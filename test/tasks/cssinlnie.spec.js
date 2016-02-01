@@ -8,7 +8,9 @@ describe('css inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/css/import.css'
-            ]
+            ],
+            img: true,
+            css: true
         });
 
         expect(result[0].data).to.eql(helper.readFileSync('css/out/import.css').toString());
@@ -20,6 +22,7 @@ describe('css inliner', function () {
             files: [
                 'test/fixtures/css/import.css'
             ],
+            img: true,
             css: {
                 compress: true
             }
@@ -53,7 +56,8 @@ describe('css inliner', function () {
             files: [
                 'test/fixtures/css/import.media.css'
             ],
-            img: false
+            img: false,
+            css: true
         });
 
         expect(result[0].data).to.eql(
@@ -64,6 +68,8 @@ describe('css inliner', function () {
     it('should inline font file', function () {
         var result = inliner.inline({
             inlineAll: true,
+            font: true,
+            svg: true,
             files: [
                 'test/fixtures/css/font.css'
             ]
@@ -78,6 +84,7 @@ describe('css inliner', function () {
             font: {
                 limit: 1024
             },
+            svg: true,
             files: [
                 'test/fixtures/css/font.css'
             ]
@@ -86,10 +93,11 @@ describe('css inliner', function () {
 
         result = inliner.inline({
             inlineAll: true,
-            output: 'output',
+            // output: 'output',
             font: {
                 limit: 1024 * 1.4
             },
+            svg: true,
             files: [
                 'test/fixtures/css/font.css'
             ]
@@ -102,7 +110,8 @@ describe('css inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/css/svg.css'
-            ]
+            ],
+            svg: true
         });
 
         expect(result[0].data).to.eql(

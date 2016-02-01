@@ -28,9 +28,10 @@ describe('inliner api', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/inliner/customTask.html'
-            ]
+            ],
+            js: true
         });
-        expect(result[0].data == helper.readFileSync('inliner/out/customTask.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('inliner/out/customTask.html').toString());
 
         // remove the custom task
         inliner.removeInlineTask('js', jsInlineTask);
@@ -40,10 +41,11 @@ describe('inliner api', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/inliner/customTask.html'
-            ]
+            ],
+            js: true
         });
 
-        expect(result[0].data == helper.readFileSync('inliner/out/without.customTask.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('inliner/out/without.customTask.html').toString());
 
     });
 

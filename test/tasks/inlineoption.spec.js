@@ -54,7 +54,9 @@ describe('inline option', function () {
                 }
 
                 return {path: newPath, dir: dir};
-            }
+            },
+            css: true,
+            js: true
         });
 
         expect(result[0].data == helper.readFileSync('path/out/customPath.tpl').toString()).to.be(true);
@@ -70,7 +72,8 @@ describe('inline option', function () {
             ],
             processor: {
                 mustache: 'html'
-            }
+            },
+            img: true
         });
 
         expect(result[0].data == helper.readFileSync('processor/out/customTpl.mustache').toString()).to.be(true);
@@ -123,7 +126,10 @@ describe('inline option', function () {
                 'test/fixtures/filemap/index.html'
             ],
             fileMap: fileMap,
-            output: 'output'
+            // output: 'output',
+            img: true,
+            css: true,
+            js: true
         });
         var expectedResult = helper.readFileSync('filemap/out/index.html').toString();
         expect(result[0].data).to.eql(expectedResult);

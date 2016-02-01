@@ -41,10 +41,13 @@ describe('js inliner', function () {
             inlineAll: true,
             files: [
                 'test/fixtures/js/custom.js'
-            ]
+            ],
+            css: true,
+            img: true,
+            js: true
         });
 
-        expect(result[0].data == helper.readFileSync('js/out/custom.js').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('js/out/custom.js').toString());
     });
     it('should inline custom inline file and compress inline js/css in js file', function () {
         var result = inliner.inline({
@@ -60,9 +63,10 @@ describe('js inliner', function () {
             },
             css: {
                 compress: true
-            }
+            },
+            img: true
         });
 
-        expect(result[0].data == helper.readFileSync('js/out/custom.compress.js').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('js/out/custom.compress.js').toString());
     });
 });

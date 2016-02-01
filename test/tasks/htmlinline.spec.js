@@ -173,6 +173,18 @@ describe('html inliner', function () {
         });
 
         expect(result[0].data).to.eql(helper.readFileSync('html/out/svg.source.html').toString());
+
+        var result = inliner.inline({
+            inlineAll: true,
+            files: [
+                'test/fixtures/html/svg.embed.html'
+            ],
+            svg: {
+                useSource: true
+            }
+        });
+
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/svg.embed.html').toString());
     });
 
     it('should inline limit svg file using source', function () {

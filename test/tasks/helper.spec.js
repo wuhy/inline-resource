@@ -178,7 +178,7 @@ describe('html regexp constant', function () {
             while (result = regex.exec(str)) {
                 matchItems.push({
                     start: result[1],
-                    end: result[2]
+                    end: result[3]
                 });
             }
             return matchItems;
@@ -193,6 +193,14 @@ describe('html regexp constant', function () {
             {
                 start: '<object data="helloworld.swf" type="application/vnd.adobe.flash-movie">',
                 end: '\n\n</object>'
+            },
+            {
+                start: '<embed id="embed" src="smiley.svg" type="image/svg+xml">',
+                end: '</embed>'
+            },
+            {
+                start: '<embed name="e"  src="simplest.svg" width="50"\n       >',
+                end: '</embed>'
             }
         ]);
     });

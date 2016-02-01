@@ -4,7 +4,12 @@
   "description": "Inline image/css/js/html etc. what you wanna inline resource",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/tasks/*.spec.js"
+    "test": "npm run unit",
+    "unit": "mocha test/tasks/*.spec.js",
+    "cover": "npm run cover-local && npm run coveralls",
+    "cover-local": "istanbul cover _mocha test/tasks/*.spec.js",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "pre-release": "npm test"
   },
   "repository": {
     "type": "git",
@@ -34,7 +39,9 @@
   },
   "devDependencies": {
     "clean-css": "^3.4.9",
+    "coveralls": "^2.11.6",
     "expect.js": "^0.3.1",
+    "istanbul": "^0.4.2",
     "mocha": "^2.3.3",
     "svgo": "^0.6.1",
     "uglify-js": "^2.6.1"

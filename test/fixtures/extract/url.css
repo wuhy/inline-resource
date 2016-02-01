@@ -1,0 +1,33 @@
+/**
+ * normal
+ */
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?-c0lvak');
+    src: url( "../fonts/icomoon.eot?#iefix-c0lvak") format('embedded-opentype'),
+         url( ../fonts/icomoon.ttf?-c0lvak ) format('truetype'),
+         url(../fonts/icomoon.woff?-c0lvak) format('woff'),
+         url( '../fonts/icomoon.svg?-c0lvak#icomoon' ) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    height: 50px;
+    background: url(./import/icon2.png) no-repeat;
+}
+.catsandstars {
+    background-image:  url("https://mdn.mozillademos.org/files/11991/startransparent.gif"), url("https://mdn.mozillademos.org/files/7693/catfront.png");
+    background-color: transparent;
+}
+
+#borderimg {
+    -webkit-border-image: url(border.png) 30 round; /* Safari 3.1-5 */
+    -o-border-image: url(border.png) 30 round; /* Opera 11-12.1 */
+    border-image: url(border.png) 30 round;
+}
+
+.icon2 {
+    background: url( {% host %}/a/b.png);
+}

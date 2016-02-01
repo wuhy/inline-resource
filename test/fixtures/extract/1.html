@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head lang="en"><meta charset="UTF-8"><title></title><link href="" rel="shortcut icon" />
+
+    <link href="dep/normalize/2.1.0/normalize.css" rel="stylesheet" />
+    <!----><link rel="stylesheet" type="text/css" href="theme.css"><link href="src/common/css/main.less" rel="stylesheet" />
+    <!--[if IE 7]>
+    <link href="dep/font-awesome/3.1.0/less/font-awesome-ie7.less" rel="stylesheet" />
+    <![endif]-->
+
+    <!-- <link href="a/b.css"> -->
+    <link rel="import" href="/path/to/imports/stuff.html">
+    <style>body{width: 100%;}</style> <style >
+    </style>
+
+    <style>
+        @import 'import.css' all;
+        .icon {
+            width: 100%;
+        }
+    </style>
+    <style type="text/css">
+        h1 {color:red;}
+        p {color:blue;}
+    </style>
+    <!-- CSS media query within a stylesheet -->
+    <style>
+        @media (max-width: 600px) {
+            .facet_sidebar {
+                display: none;
+            }
+        }
+    </style>
+
+    <style media="print">
+        h1 {color:#000000;}
+        p {color:#000000;}
+        body {background-color:#FFFFFF;}
+    </style>
+</head>
+<body>
+<div>
+    <style scoped>
+        h1 {color:red;}
+        p {color:blue;}
+    </style>
+    <h1>This is a heading</h1>
+    <p>This is a paragraph.</p>
+</div>
+
+<img src="../img/bookmark.png" alt="bookmark">
+<img title="bookmark" src= "{% host %}/img/bookmark.png"/><img><img src="a/b.png?a=33">
+<img >
+
+<object width="400" height="400" data="helloworld.swf"></object>
+<object></object><object data="helloworld.swf" type="application/vnd.adobe.flash-movie">
+
+</object>
+</body>
+</html>

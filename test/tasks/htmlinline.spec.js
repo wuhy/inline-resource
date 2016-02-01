@@ -38,7 +38,7 @@ describe('html inliner', function () {
             js: true
         });
 
-        expect(result[0].data == helper.readFileSync('html/out/script.content.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/script.content.html').toString());
     });
 
     it('should inline and compress script file referred in script content element', function () {

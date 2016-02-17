@@ -178,6 +178,18 @@ var result = inliner.inline({
     css: {
         // whether rebase the file path referred by inline css file, by default false
         rebase: false, 
+        rebase: {
+            absolute: true, // rebase as absolute path
+            ignore: function (url, relativeFile, targetFile) { // ignore url rebase
+                return false;
+            }
+        },
+        rebase: function (url, relativeFile, targetFile) { // custom rebase logic
+            var isLocalPath = this.isLocal(url);
+            var absPath = this.resolve(url, relativeFile);
+            var rebasePath = this.rebase(url, relativeFile, targetFile);
+            return url;
+        }
         
         // whether compress css source file, by default false
         // if enabled, please make sure `clean-css@^3.4.9` is installed in global or working dir

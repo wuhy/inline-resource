@@ -92,7 +92,7 @@ describe('css inliner', function () {
             ],
             css: {
                 rebase: function (url, relativeFile, targetFile) {
-                    if (url.startsWith('http://')) {
+                    if (url.indexOf('http://') === 0) {
                         expect(this.isLocal(url)).to.be(false);
                         expect(this.resolve(url, relativeFile)).to.eql(url);
                         expect(this.rebase(url, relativeFile, targetFile)).to.eql(url);

@@ -1,0 +1,7 @@
+@import 'import/rebase2.css';
+
+.icon {
+    height: 50px;
+    background: url(./import/icon2.png) no-repeat;
+}
+

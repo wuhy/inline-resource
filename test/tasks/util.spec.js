@@ -55,7 +55,8 @@ describe('utility', function () {
     it('should rebase the given path', function () {
         expect(util.rebasePath('./a/b.js', 'index.html', 'c/index.html')).to.be('../a/b.js');
         expect(util.rebasePath('../a.js', 'c/index.html', 'index.html')).to.be('a.js');
-        expect(util.rebasePath('b.js', 'c/index.html', 'index.html')).to.be('c/b.js')
+        expect(util.rebasePath('b.js', 'c/index.html', 'index.html')).to.be('c/b.js');
+        expect(util.rebasePath('/b.js', 'c/index.html', 'index.html')).to.be('/b.js')
     });
 
     it('should create correct directory based the given path', function () {

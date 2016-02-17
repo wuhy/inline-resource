@@ -327,4 +327,22 @@ describe('helper', function () {
             helper.readFileSync('format.js').toString()
         );
     });
+
+    it('should escapse regexp character', function () {
+        var result = new RegExp(util.escapeRegexp('[.+]*/\\?-()^$|{}'));
+        expect(result).to.eql(/\[\.\+\]\*\/\\\?\-\(\)\^\$\|\{\}/);
+        result = util.escapeRegexp('');
+        expect(result).to.eql('');
+    });
+
+    it('should replace url', function () {
+        var result = util.replaceURL('url( http://xx.com/a.jpg )', '', 'http://www.baidu.com/a.jpg');
+        expect(result).to.eql('url( http://xx.com/a.jpg )');
+
+        result = util.replaceURL('url( http://xx.com/a.jpg )', 'http://xx.com/a.jpg', 'http://www.baidu.com/a.jpg');
+        expect(result).to.eql('url( http://www.baidu.com/a.jpg )');
+
+        result = util.replaceURL('image-set( "test.png" 1x, \'test-2x.png\' 2x, \'test.png\' 600dpi );', 'test.png', 'abc.png');
+        expect(result).to.eql('image-set( "abc.png" 1x, \'test-2x.png\' 2x, \'abc.png\' 600dpi );');
+    });
 });

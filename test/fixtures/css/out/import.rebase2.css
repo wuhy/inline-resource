@@ -1,0 +1,37 @@
+/**
+ * @file import css file
+ * @author test
+ */
+
+.icon2 {
+    height: 50px;
+    background: url(../img/bookmark.png) no-repeat;
+    background: url(//www.baidu.com/a/b.jpg);
+    background: url( "http://www.xxx.com/b.gif" );
+}
+
+div {
+    background-image: image-set( "import/test.png" 1x, 'import/test-2x.png' 2x, "import/test-print.png" 600dpi );
+    background-image: image-set(
+        "import/test.png" 1x,
+        'import/test-2x.png' 2x,
+        "import/test-print.png" 600dpi
+    );
+    background-image: image-set( url('import/test.png') 1x, url(import/test-2x.png) 2x );
+}
+
+.oDiv {
+    position:relative;  width:200px; color:gold;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='/a.gif');
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='a/b.gif');
+
+}
+
+
+.icon {
+    height: 50px;
+    background: url(./import/icon2.png) no-repeat;
+}
+

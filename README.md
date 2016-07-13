@@ -125,7 +125,7 @@ var result = inliner.inline({
     }
     ```
 
-* inlineAll - `boolean` `optional` whether inline all local resources referred by the processed file, by default `false`, specify which resource need to be inline manually. **Notice** if setting `true`, you should manuall specify which resource type you want to inline all using the following resource type option, e.g., setting `css: true`, it will inline all css files.
+* inlineAll - `boolean` `optional` whether inline all local resources referred by the processed file, by default `false`, specify which resource need to be inline manually using url inline query param. **Notice** if setting `true`, you should manuall specify which resource type you want to inline all using the following resource type option, e.g., setting `css: true` or `css: {/*options*/}`, it will inline all css files.
 
 * inlineParamName - `string` `optional` by default `_inline`, specify the inline resource like:
 

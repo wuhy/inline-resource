@@ -22,18 +22,21 @@ describe('js inliner', function () {
     it('should inline and compress document.write js file', function () {
         var result = inliner.inline({
             inlineAll: true,
+            output: 'output',
             files: [
                 'test/fixtures/js/write.js',
                 'test/fixtures/js/write2.js'
             ],
             js: {
                 custom: false,
-                compress: true
+                compress: {
+                    mangle: false
+                }
             }
         });
 
-        expect(result[0].data == helper.readFileSync('js/out/write.compress.js').toString()).to.be(true);
-        expect(result[1].data == helper.readFileSync('js/out/write2.compress.js').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('js/out/write.compress.js').toString());
+        expect(result[1].data).to.eql(helper.readFileSync('js/out/write2.compress.js').toString());
     });
 
     it('should inline custom inline file in js file', function () {
@@ -56,7 +59,9 @@ describe('js inliner', function () {
                 'test/fixtures/js/custom.js'
             ],
             js: {
-                compress: true
+                compress: {
+                    mangle: false
+                }
             },
             html: {
                 compress: true

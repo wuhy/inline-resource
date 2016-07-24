@@ -3,7 +3,7 @@ var helper = require('./helper');
 var inliner = require('../../index');
 
 describe('html inliner', function () {
-    it('should inlnie script file', function () {
+    it('should inline script file', function () {
         var result = inliner.inline({
             inlineAll: true,
             files: [
@@ -22,11 +22,13 @@ describe('html inliner', function () {
                 'test/fixtures/html/script.html'
             ],
             js: {
-                compress: true
+                compress: {
+                    mangle: false
+                }
             }
         });
 
-        expect(result[0].data == helper.readFileSync('html/out/script.compress.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/script.compress.html').toString());
     });
 
     it('should process script file inline in script content element', function () {

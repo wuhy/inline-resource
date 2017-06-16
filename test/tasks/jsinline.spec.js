@@ -22,7 +22,6 @@ describe('js inliner', function () {
     it('should inline and compress document.write js file', function () {
         var result = inliner.inline({
             inlineAll: true,
-            output: 'output',
             files: [
                 'test/fixtures/js/write.js',
                 'test/fixtures/js/write2.js'
@@ -55,6 +54,7 @@ describe('js inliner', function () {
     it('should inline custom inline file and compress inline js/css in js file', function () {
         var result = inliner.inline({
             inlineAll: true,
+            // output: 'output',
             files: [
                 'test/fixtures/js/custom.js'
             ],

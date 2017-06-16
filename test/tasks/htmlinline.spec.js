@@ -80,7 +80,7 @@ describe('html inliner', function () {
             }
         });
 
-        expect(result[0].data == helper.readFileSync('html/out/style.compress.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(helper.readFileSync('html/out/style.compress.html').toString());
     });
 
     it('should inline css with media query in link element', function () {

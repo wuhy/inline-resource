@@ -19,7 +19,7 @@ inline-resource
 
 * Support inline `js` file referred by `script` element or `document.write` statement
 
-* Support custom inline method using `__inline(path)` in script
+* Support custom inline method using `__inline(path)` in script or html
 
 * The script and style element content defined in html can also be processed
 

@@ -167,7 +167,7 @@ var result = inliner.inline({
         limit: 1024
         
         // whether compress svg source file when inline svg source, by default false
-        // if enabled, please make sure `svgo@^0.6.1` is installed in global or working dir
+        // if enabled, please make sure `svgo@^1.0.0` is installed in global or working dir
         compress: false 
     }
     ```
@@ -192,7 +192,7 @@ var result = inliner.inline({
         }
         
         // whether compress css source file, by default false
-        // if enabled, please make sure `clean-css@^3.4.9` is installed in global or working dir
+        // if enabled, please make sure `clean-css@4` is installed in global or working dir
         compress: false 
     }
     ```
@@ -206,7 +206,7 @@ var result = inliner.inline({
         custom: false, 
         
         // whether compress js source file, by default false
-        // if enabled, please make sure `uglify-js@^2.6.1` is installed in global or working dir
+        // if enabled, please make sure `uglify-js@3` is installed in global or working dir
         compress: false 
     }
     ```

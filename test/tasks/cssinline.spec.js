@@ -109,7 +109,7 @@ describe('css inliner', function () {
         );
     });
 
-    it('should import and rebase css file path using ingore option', function () {
+    it('should import and rebase css file path using ignore option', function () {
         var result = inliner.inline({
             inlineAll: true,
             files: [
@@ -160,12 +160,12 @@ describe('css inliner', function () {
                 'test/fixtures/css/font.css'
             ]
         });
-
         expect(result[0].data).to.eql(helper.readFileSync('css/out/font.css').toString());
     });
 
     it('should inline limit font file', function () {
         var result = inliner.inline({
+            // output: 'output',
             inlineAll: true,
             font: {
                 limit: 1024
@@ -179,7 +179,7 @@ describe('css inliner', function () {
 
         result = inliner.inline({
             inlineAll: true,
-            // output: 'output',
+            output: 'output',
             font: {
                 limit: 1024 * 1.4
             },

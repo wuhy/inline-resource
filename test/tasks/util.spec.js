@@ -141,4 +141,16 @@ describe('utility', function () {
         expect(util.require('uglify-js') !== null).to.be(true);
         expect(util.require('abc') == null).to.be(true);
     });
+
+    it('should return true when passing regexp instance', function () {
+        expect(util.isRegExp(/abc/)).to.be(true);
+        expect(util.isRegExp(new RegExp('abc'))).to.be(true);
+        expect(util.isRegExp('//')).to.be(false);
+    });
+
+    it('should return true when passing function', function () {
+        expect(util.isFunction(function () {})).to.be(true);
+        expect(util.isFunction(new Function())).to.be(true);
+        expect(util.isFunction('//')).to.be(false);
+    });
 });

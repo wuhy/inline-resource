@@ -12,7 +12,9 @@ describe('html inliner', function () {
             js: true
         });
 
-        expect(result[0].data == helper.readFileSync('html/out/script.html').toString()).to.be(true);
+        expect(result[0].data).to.eql(
+            helper.readFileSync('html/out/script.html').toString()
+        );
     });
 
     it('should inline and compress script file', function () {
@@ -28,7 +30,9 @@ describe('html inliner', function () {
             }
         });
 
-        expect(result[0].data).to.eql(helper.readFileSync('html/out/script.compress.html').toString());
+        expect(result[0].data).to.eql(
+            helper.readFileSync('html/out/script.compress.html').toString()
+        );
     });
 
     it('should process script file inline in script content element', function () {
@@ -208,6 +212,7 @@ describe('html inliner', function () {
     it('should inline and compress svg file using source', function () {
         var result = inliner.inline({
             inlineAll: true,
+            // output: 'output',
             files: [
                 'test/fixtures/html/svg.html'
             ],

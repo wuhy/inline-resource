@@ -3,7 +3,6 @@
  * @author sparklewhy@gmail.com
  */
 
-var _ = require('lodash');
 var Inliner = require('./lib/processor/inliner');
 
 // 注册预定义的内联处理器
@@ -70,7 +69,7 @@ exports.removeInlineTask = function (type, task) {
  *        }
  */
 exports.registerInlineProcessor = function (type, processor) {
-    if (!_.isObject(processor)) {
+    if (!processor || typeof processor !== 'object') {
         return;
     }
 
@@ -84,9 +83,9 @@ exports.registerInlineProcessor = function (type, processor) {
 
     CustomProcessor.prototype.type = type;
 
-    var proto = _.merge({}, processor);
+    var proto = Object.assign({}, processor);
     delete proto.taskList;
-    _.extend(CustomProcessor.prototype, proto);
+    Object.assign(CustomProcessor.prototype, proto);
 
     Inliner.register(CustomProcessor);
 };

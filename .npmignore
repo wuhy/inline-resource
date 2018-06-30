@@ -2,8 +2,10 @@ node_modules/
 coverage/
 test/
 .idea/
+output/
 npm-debug.log
 Thumbs.db
 .DS_Store
 *.swp
 *.bat
+package-lock.json
